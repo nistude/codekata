@@ -1,0 +1,8 @@
+Written with TDD, GOOS-style
+
+Thoughts:
+grid#update breaks the 'tell, dont ask' principle. Thinking more about it,
+neighbour-handling breaks the 'single responsibility' principle for the cell
+class and should be moved to the grid instead.
+
+The Grid class could use some iterator to operate on all cells.

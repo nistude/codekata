@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
+
+require 'game_of_life'
+
+gol = GameOfLife.new
+while true
+  gol.play
+  sleep 0.2
+end
