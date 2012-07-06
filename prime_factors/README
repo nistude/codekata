@@ -1,0 +1,16 @@
+http://amirrajan.net/Blog/code-katas-prime-factors
+
+Start with the simplest implementation possible. Don't try to find a solution
+all at once. This kata will help you create the muscle memory to start with the
+most naive solution first. In fact, I'm recommending you write your tests in
+this order (again, only write enough code to make each test pass):
+
+given 0, should return empty list
+given 1, should return empty list
+given 2, should return 2
+given 3, should return 3
+given 4, should return 2,2
+given 5, should return 5
+given 6, should return 2,3
+given 9, should return 3,3
+given 9973, should return 9973
