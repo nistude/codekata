@@ -1,0 +1,1 @@
+require 'prime_factors'
