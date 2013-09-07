@@ -1,34 +1,38 @@
 class BowlingGame
   def initialize
-    @pins = []
-    @frame = -1
+    @frames = []
+    @current_frame = -1
     @rolls = 0
   end
 
   def roll(pins)
     if new_frame?
-      @frame += 1
-      @pins[@frame] = []
+      @current_frame += 1
+      @frames[@current_frame] = []
     end
-    @pins[@frame] << pins
+    @frames[@current_frame] << pins
     @rolls += 1
   end
 
   def score
-    score = 0
-    @pins.each_with_index do |pins, frame|
-      frame_score = 0
-      pins.each { |p| frame_score += p }
-      if frame_score == 10
-        frame_score += @pins[frame + 1][0]
+    game_score = 0
+    @frames.each_with_index do |frame, index|
+      @frame_score = 0
+      frame.each { |pins| @frame_score += pins }
+      if spare?
+        @frame_score += @frames[index + 1][0]
       end
-      score += frame_score
+      game_score += @frame_score
     end
-    score
+    game_score
   end
 
   private
   def new_frame?
     @rolls % 2 == 0
+  end
+
+  def spare?
+    @frame_score == 10
   end
 end
