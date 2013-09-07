@@ -1,9 +1,9 @@
 class BowlingGame
   def roll(pins)
-
+    @pins = pins
   end
 
   def score
-    0
+    @pins || 0
   end
 end

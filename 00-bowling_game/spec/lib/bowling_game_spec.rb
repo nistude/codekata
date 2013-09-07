@@ -13,5 +13,12 @@ describe BowlingGame do
         expect(game.score).to eq 0
       end
     end
+
+    context 'after one roll' do
+      it 'returns the number of pins knocked down' do
+        game.roll(3)
+        expect(game.score).to eq 3
+      end
+    end
   end
 end
