@@ -3,30 +3,27 @@ require 'bowling_game'
 describe BowlingGame do
   let(:game) { BowlingGame.new }
 
-  describe '#roll' do
-
+  context 'without any rolls' do
+    it 'has a score of 0' do
+      expect(game.score).to eq 0
+    end
   end
 
-  describe '#score' do
-    context 'without any rolls' do
-      it 'returns 0' do
-        expect(game.score).to eq 0
-      end
+  context 'without spares or strikes' do
+    it 'sums all knocked down pins' do
+      20.times { game.roll(3) }
+      expect(game.score).to eq 60
     end
+  end
 
-    context 'after one roll' do
-      it 'returns the number of pins knocked down' do
-        game.roll(3)
-        expect(game.score).to eq 3
-      end
-    end
+  context 'with a spare' do
+    xit 'counts the roll after the spare as bonus' do
+      game.roll(3)
+      game.roll(7)
+      game.roll(3)
+      game.roll(3)
 
-    context 'after two rolls' do
-      it 'returns the sum of pins knocked down' do
-        game.roll(3)
-        game.roll(4)
-        expect(game.score).to eq 7
-      end
+      expect(game.score).to eq 19
     end
   end
 end
