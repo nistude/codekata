@@ -17,7 +17,7 @@ describe BowlingGame do
   end
 
   context 'with a spare' do
-    xit 'counts the roll after the spare as bonus' do
+    it 'counts the roll after the spare as bonus' do
       game.roll(3)
       game.roll(7)
       game.roll(3)

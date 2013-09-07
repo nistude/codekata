@@ -19,6 +19,9 @@ class BowlingGame
     @pins.each_with_index do |pins, frame|
       frame_score = 0
       pins.each { |p| frame_score += p }
+      if frame_score == 10
+        frame_score += @pins[frame + 1][0]
+      end
       score += frame_score
     end
     score
