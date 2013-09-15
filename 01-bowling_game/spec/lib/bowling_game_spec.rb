@@ -29,6 +29,15 @@ describe BowlingGame do
 
         expect(game.score).to eq 16
       end
+
+      it 'handles bonus balls at the end of the game properly' do
+        18.times { game.roll(0) }
+        game.roll(5)
+        game.roll(5)
+        game.roll(3)
+
+        expect(game.score).to eq 13
+      end
     end
   end
 end
