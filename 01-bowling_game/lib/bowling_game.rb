@@ -22,8 +22,8 @@ class BowlingGame
     frame_score = first_roll + second_roll
 
     if spare?(first_roll, second_roll)
-      first_bonus = @rolls[2 * frame + 2]
-      frame_score += first_bonus
+      bonus = @rolls[2 * frame + 2]
+      frame_score += bonus
     end
 
     frame_score
