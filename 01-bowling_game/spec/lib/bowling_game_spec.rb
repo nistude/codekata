@@ -36,7 +36,7 @@ describe BowlingGame do
 
     context 'with a strike' do
       it 'counts the two rolls after the strike as bonus' do
-        game.roll(10)
+        roll_strike
         game.roll(3)
         game.roll(3)
         17.times { game.roll(0) }
@@ -46,7 +46,7 @@ describe BowlingGame do
 
       it 'handles bonus balls at the end of the game properly' do
         18.times { game.roll(0) }
-        3.times { game.roll(10) }
+        3.times { roll_strike }
 
         expect(game.score).to eq 30
       end
@@ -56,5 +56,9 @@ describe BowlingGame do
   def roll_spare
     game.roll(5)
     game.roll(5)
+  end
+
+  def roll_strike
+    game.roll(10)
   end
 end
