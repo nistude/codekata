@@ -33,6 +33,17 @@ describe BowlingGame do
         expect(game.score).to eq 13
       end
     end
+
+    context 'with a strike' do
+      it 'counts the two rolls after the strike as bonus' do
+        game.roll(10)
+        game.roll(3)
+        game.roll(3)
+        17.times { game.roll(0) }
+
+        expect(game.score).to eq 22
+      end
+    end
   end
 
   def roll_spare

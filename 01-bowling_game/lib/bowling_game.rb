@@ -9,8 +9,27 @@ class BowlingGame
 
   def score
     game_score = 0
-    (0..9).each do |frame|
-      game_score += frame_score(frame)
+    frame = 1
+    i = 0
+    while frame <= 10 do
+      pins = @rolls[i]
+      if pins == 10
+        frame_score = pins
+        frame_score += @rolls[i + 1]
+        frame_score += @rolls[i + 2]
+        frame += 1
+        i += 1
+      elsif pins + @rolls[i + 1] == 10
+        frame_score = pins + @rolls[i + 1]
+        frame_score += @rolls[i + 2]
+        frame += 1
+        i += 2
+      else
+        frame_score = pins + @rolls[i + 1]
+        frame += 1
+        i += 2
+      end
+      game_score += frame_score
     end
     game_score
   end
