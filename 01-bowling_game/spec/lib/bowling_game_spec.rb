@@ -12,5 +12,12 @@ describe BowlingGame do
       20.times { game.roll(0) }
       expect(game.score).to eq 0
     end
+
+    context 'without spares and strikes' do
+      it 'returns the sum of all rolls' do
+        20.times { game.roll(1) }
+        expect(game.score).to eq 20
+      end
+    end
   end
 end
