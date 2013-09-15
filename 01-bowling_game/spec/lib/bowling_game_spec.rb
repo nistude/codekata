@@ -53,6 +53,27 @@ describe BowlingGame do
     end
   end
 
+  describe 'integration tests' do
+    it 'counts all strikes correctly' do
+      12.times { roll_strike }
+
+      expect(game.score).to eq 300
+    end
+
+    it 'counts all spares correctly' do
+      10.times { roll_spare }
+      game.roll(5)
+
+      expect(game.score).to eq 150
+    end
+
+    it 'just adds pins when there are no strikes or spares' do
+      10.times { game.roll(9); game.roll(0) }
+
+      expect(game.score).to eq 90
+    end
+  end
+
   def roll_spare
     game.roll(5)
     game.roll(5)
