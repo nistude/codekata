@@ -3,10 +3,6 @@ require 'bowling_game'
 describe BowlingGame do
   let(:game) { BowlingGame.new }
 
-  describe '#roll' do
-
-  end
-
   describe '#score' do
     it 'returns 0 for the gutter game' do
       20.times { game.roll(0) }
@@ -22,8 +18,7 @@ describe BowlingGame do
 
     context 'with a spare' do
       it 'counts the roll after the spare as a bonus' do
-        game.roll(5)
-        game.roll(5)
+        roll_spare
         game.roll(3)
         17.times { game.roll(0) }
 
@@ -32,12 +27,16 @@ describe BowlingGame do
 
       it 'handles bonus balls at the end of the game properly' do
         18.times { game.roll(0) }
-        game.roll(5)
-        game.roll(5)
+        roll_spare
         game.roll(3)
 
         expect(game.score).to eq 13
       end
     end
+  end
+
+  def roll_spare
+    game.roll(5)
+    game.roll(5)
   end
 end
