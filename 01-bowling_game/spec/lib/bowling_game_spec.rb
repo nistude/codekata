@@ -19,5 +19,16 @@ describe BowlingGame do
         expect(game.score).to eq 20
       end
     end
+
+    context 'with a spare' do
+      it 'counts the roll after the spare as a bonus' do
+        game.roll(5)
+        game.roll(5)
+        game.roll(3)
+        17.times { game.roll(0) }
+
+        expect(game.score).to eq 16
+      end
+    end
   end
 end
